@@ -1,5 +1,7 @@
-# Ignore the data folder
+# Ignore the secrets folder
+secrets/
 
+# Ignore the data folder
 data/
 
 
