@@ -29,7 +29,7 @@ def countForQuery(query):
 def records_by_term_and_year(search_terms, years):
     data = []
     for search_term in search_terms:
-        for year in range(2017, 2000, -1):
+        for year in years:
             query = "{} year:{}".format(search_term, year)
             filteredCount = countForQuery(query)
             unfilteredCount = countForQuery("")
