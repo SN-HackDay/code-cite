@@ -1,5 +1,11 @@
-# Secrets folder
+# Ignore the secrets folder
 secrets/
+
+# Ignore the data folder
+data/
+
+
+#### Default python gitignore as initiated by GitHub
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
