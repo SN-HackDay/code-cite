@@ -8,7 +8,7 @@ The goal is to investigate how often code is cited in academic publications.
 
 We would love for you to join us on this journey!
 
-Check out the [contributing guidelines](https://github.com/SN-HackDay/code-cite/blob/master/CONTRIBUTING.md)
+Check out the [contributing guidelines](https://github.com/SN-HackDay/code-cite/blob/master/CONTRIBUTING.md) or our [list of issues](https://github.com/SN-HackDay/code-cite/issues) to see how you can help.
 
 ### Contributors
 
