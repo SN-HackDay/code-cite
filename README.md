@@ -4,7 +4,7 @@ This project started at Springer Nature Hackday in November 2017.
 
 The goal is to investigate how often code is cited in academic publications.
 
-It was inspired by Yo Yehudi's [Code is Science](https://github.com/yochannah/code-is-science/) project and seeks to complement the work by that community by providing some numbers associated with the prevalence of code citations in the published literature.
+It was inspired by [Yo Yehudi's](https://github.com/yochannah) [Code is Science](https://github.com/yochannah/code-is-science/) project and seeks to complement the work by that community by providing some numbers associated with the prevalence of code citations in the published literature.
 
 ### Contributing
 
