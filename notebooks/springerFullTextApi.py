@@ -4,7 +4,7 @@ import time
 from xml.etree import ElementTree
 
 # Get API key from secrets folder
-api_key_path = "secrets/springer_fulltext_api_key.txt"
+api_key_path = "../secrets/springer_fulltext_api_key.txt"
 f = open(api_key_path, 'r')
 api_key = f.readline()
 api_base_url = "http://api.springer.com/xmldata/app"
