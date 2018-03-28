@@ -1,4 +1,4 @@
-# Code (and Data) Cite
+# The Code and Data Citation Counter
 
 This project started at [Springer Nature Hackday](https://www.springernature.com/gb/researchers/campaigns/sn-hack-day) in November 2017 and continued at the [Collaborations Workshop Hackday](https://www.software.ac.uk/cw18/) in March 2018.
 
