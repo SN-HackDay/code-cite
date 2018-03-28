@@ -1,5 +1,7 @@
 # The Code and Data Citation Counter
 
+[![DOI](https://zenodo.org/badge/127038940.svg)](https://zenodo.org/badge/latestdoi/127038940)
+
 ***Allow researchers and policy makers to see how the presence and quality of links to data and software in publications are changing over time so that they can identify emergent behaviour.***
 
 This project started at [Springer Nature Hackday](https://www.springernature.com/gb/researchers/campaigns/sn-hack-day) in November 2017 and continued at the [Collaborations Workshop Hackday](https://www.software.ac.uk/cw18/) in March 2018.
