@@ -14,7 +14,7 @@ The code-cite counter searches a corpus of literature (eg: [Europe Pubmed Centra
 
 We also provide measures of stability and quality for this code by resolving links found in papers and evaluating metadata such as the existence of a `README` or `LICENSE` file.
 
-Finally, we provide (the beginnings of) a [web interface](https://codecite.herokuapp.com/) so that users can run their own search queries from the published literature, and from specific journals of interest.
+Finally, we provide (the beginnings of) a [web interface](https://codecite.herokuapp.com/) so that users can run their own search queries from the published literature, and from specific journals of interest. You can see the source code in its (separate) [github repository](https://github.com/softwaresaved/code-cite-app).
 
 
 ### Contributing
