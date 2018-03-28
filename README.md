@@ -6,13 +6,16 @@ This project started at [Springer Nature Hackday](https://www.springernature.com
 
 The goal is to analyse a corpus of papers for citation links into repositories which may hold research data and/or software.
 
-Being able to measure the number of papers that cite their code and data in the academic literature is important to show evidence of the increasing recognition of research software and its developers.
+We are highly motivated to support the much needed culture change regarding the recognition of open data and code sharing in the scientific community. Being able to measure the number of papers that cite their code and data in the academic literature is important to show **evidence of the increasing recognition** of research software and its developers. 
 
-The `code-cite` counter searchs a corpus of literature (eg: [Europe Pubmed Central](https://europepmc.org)) for particular terms (such as `github.com`, `doi.org/10.5281/zenodo` or `doi.org/10.6084/m9.figshare`) and show how their prevalence is increasing over time.
+### What does the code cite counter do?
+
+The code-cite counter searches a corpus of literature (eg: [Europe Pubmed Central](https://europepmc.org)) for particular terms (such as `github.com`, `doi.org/10.5281/zenodo` or `doi.org/10.6084/m9.figshare`) and show how their prevalence is increasing over time.
 
 We also provide measures of stability and quality for this code by resolving links found in papers and evaluating metadata such as the existence of a `README` or `LICENSE` file.
 
-Insights may further the much needed culture change regarding the recognition of open data and code sharing in the scientific community.
+Finally, we provide (the beginnings of) a [web interface](https://codecite.herokuapp.com/) so that users can run their own search queries from the published literature, and from specific journals of interest.
+
 
 ### Contributing
 
@@ -35,7 +38,7 @@ This project follows the [all-contributors][all-contributors] specification and 
 
 The project was inspired by [Yo Yehudi's](https://github.com/yochannah) [Code is Science](https://github.com/yochannah/code-is-science/) project and seeks to complement the work by that community by providing some numbers associated with the prevalence of code citations in the published literature.
 
-Our efforts also complement published work by Park et al (2017, doi:[10.1007/s11192-017-2240-2](https://doi.org/10.1007/s11192-017-2240-2).
+Our efforts also complement published work by Park et al (2017, doi:[10.1007/s11192-017-2240-2](https://doi.org/10.1007/s11192-017-2240-2)).
 
 
 ### Secrets
