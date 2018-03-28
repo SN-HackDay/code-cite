@@ -1,7 +1,7 @@
 {
     "description": "<p>This version of the <code>code-cite</code> project was built at the <a href=\"https://www.software.ac.uk\">Software Sustainability Institute's</a> <a href=\"https://www.software.ac.uk/cw18/\">Collaborations Workshop Hack Day</a> in March 2018 and extends work started at the second <a href=\"https://www.springernature.com/gb/researchers/campaigns/sn-hack-day\">Springer Nature Hack Day</a> in November 2017.</p>\n<p>The goal is to interrogate the published literature for key terms relating to software and data citations (eg: <code>zenodo</code> or <code>github</code>).</p>",
-    "license": "other-open",
-    "title": "Code and Data Citation Counter",
+    "license": "MIT",
+    "title": "The Code and Data Citation Counter",
     "version": "0.2",
     "upload_type": "software",
     "publication_date": "2018-03-28",
