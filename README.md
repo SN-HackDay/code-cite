@@ -1,6 +1,6 @@
 # The Code and Data Citation Counter
 
-[![DOI](https://zenodo.org/badge/127038940.svg)](https://zenodo.org/badge/latestdoi/127038940)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1209311.svg)](https://doi.org/10.5281/zenodo.1209311)
 
 ***Allow researchers and policy makers to see how the presence and quality of links to data and software in publications are changing over time so that they can identify emergent behaviour.***
 
@@ -42,6 +42,15 @@ The project was inspired by [Yo Yehudi's](https://github.com/yochannah) [Code is
 
 Our efforts also complement published work by Park et al (2017, doi:[10.1007/s11192-017-2240-2](https://doi.org/10.1007/s11192-017-2240-2)).
 
+### Licence and citations
+
+The Code and Data Citation Counter is licensed under a MIT license and archived on [Zenodo][zenodo-concept].
+
+If you would like to cite the concept, please use this doi: [10.5281/zenodo.1209095][zenodo-concept].
+
+If you would like to reference a specific version of the software, please use the doi associated with that version. The doi is available in the release notes, and can also be found at the [link][zenodo-concept] above. The most recent release is version 0.2 which has doi: [10.5281/zenodo.1209311](zenodo-v0.2).
+
+There are also two files containing reference information (in [`cff`](CITATION.cff) and [`codemeta`](codemeta.json) formats) within the repository which should contain all the information you need to cite this repository.
 
 ### Secrets
 
@@ -53,3 +62,5 @@ all comments will be ignored by Git.
 
 [emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
 [all-contributors]: https://github.com/kentcdodds/all-contributors
+[zenodo-concept]: https://doi.org/10.5281/zenodo.1209095
+[zenodo-v0.2]: https://doi.org/10.5281/zenodo.1209311
