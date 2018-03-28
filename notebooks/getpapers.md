@@ -5,10 +5,15 @@ We use ContentMine's getpapers query to identify papers for a particular term.
 This is step one of the full pipeline to analyse the open access literature for software citation and other practises, as developed by the code-cite team at Collaborations Workshop 2018, building on work done at the Springer Nature hack day 2017.
 
 ## a. Setup your local environment
-Instead of using getpapers within a Jupyter notebook kernel, run this step locally. Here's how.
 
-> Git clone this repository
-> stepone/Requirements.txt
+You can run getpapers without local installation using this Docker image:
+
+Here's how.
+
+...
+
+
+If this does not work, or you prefer to run locally, please follow these steps:
 
 * Open the terminal
 * Install npm if you do not already have it
