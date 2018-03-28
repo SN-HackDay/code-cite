@@ -28,11 +28,11 @@ def validate_github(url,token):
     git_url_path = (url.split('github.com/'))[1]    
     g = Github(token)                 
     repo = g.get_repo(git_url_path)
-    check_github_licence_exists(repo)
-    return 0
+    licence_exists = check_github_licence_exists(repo)
+    return licence_exists
 
 
-def process_github_url(url, doi, verbose=False):
+def process_github_url(url, doi, verbose=False, github_token=None):
     """
     Given a github URL, calculate a 'code score' and report attributes
     
@@ -45,7 +45,8 @@ def process_github_url(url, doi, verbose=False):
                 'resourcetype': 'github',
                 'timestamp': datetime.datetime.now().isoformat(),
                 'resolves': None,
-                'score': 0}
+                'score': 0,
+                'licence_exists': None}
 
     if not is_url_valid(url):
         url_dict['resolves'] = False
@@ -53,6 +54,14 @@ def process_github_url(url, doi, verbose=False):
         return url_dict
     url_dict['resolves'] = True
     url_dict['score'] = url_dict['score'] + 1
+    if github_token is not None:
+        licence_exists = validate_github(url, github_token)
+        url_dict['licence_exists'] = licence_exists
+        if licence_exists:
+            print("URL {} has a licence".format(url))
+            url_dict['score'] = url_dict['score'] + 1
+        else:
+            print("URL {} does not have a licence".format(url))
     return url_dict
 
 
@@ -80,7 +89,7 @@ def process_zenodo_url(url, verbose=False):
     return url_dict
 
 
-def process_papers_dict(dict_of_papers, verbose=False):
+def process_papers_dict(dict_of_papers, verbose=False, github_token=None):
     """
     For a list of papers (represented by dois) and URLs check each one
     
@@ -97,7 +106,8 @@ def process_papers_dict(dict_of_papers, verbose=False):
         
         if 'github' in paper:
             for url in paper['github']:
-                url_dict = process_github_url(url, paper_doi, verbose=verbose)
+                url_dict = process_github_url(url, paper_doi, verbose=verbose,
+                                             github_token=github_token)
                 resources_list.append(url_dict)
                 paper_score = paper_score + url_dict['score']
                 number_or_resources = number_or_resources + 1
