@@ -53,8 +53,16 @@ def process_github_url(url, doi, verbose=False, github_token=None):
         url_dict['resolves'] = False
         if verbose: print("URL {} did not resolve".format(url))
         return url_dict
+    
+    if verbose: print("check licence for URL {}".format(url))
     url_dict['resolves'] = True
     url_dict['score'] = url_dict['score'] + 1
+    
+    if 'blob' in url:
+        if verbose: 
+            print("skipping licence check for URL {}".format(url))
+        return url_dict
+        
     if github_token is not None:
         licence_exists = validate_github(url, github_token)
         url_dict['licence_exists'] = licence_exists
@@ -111,7 +119,7 @@ def process_papers_dict(dict_of_papers, verbose=False, github_token=None):
     for paper_doi in dict_of_papers:
         paper = dict_of_papers[paper_doi]
         paper_score = 0
-        number_or_resources = 0
+        number_or_resources = 1E-17
         
         if verbose: print("processing paper with doi {}".format(paper_doi))
         
@@ -137,4 +145,4 @@ def process_papers_dict(dict_of_papers, verbose=False, github_token=None):
         if verbose: print("Paper with doi {} has score of {}".format(paper_doi, 
                                                      paper_score / number_or_resources))
             
-        return resources_list
+    return resources_list
