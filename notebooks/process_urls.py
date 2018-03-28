@@ -21,3 +21,11 @@ def check_github_licence_exists(repo):
             if poss_name in name.upper():
                 return True
     return False
+
+
+def validate_github(url,token):  
+    git_url_path = (url.split('github.com/'))[1]    
+    g = Github(token)                 
+    repo = g.get_repo(git_url_path)
+    check_github_licence_exists(repo)
+    return 0
