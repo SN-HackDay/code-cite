@@ -8,12 +8,21 @@ This is step one of the full pipeline to analyse the open access literature for 
 
 You can run getpapers without local installation using this Docker image:
 
-Here's how.
+```
+docker run softwaresaved/getpapers --query 'github.com' -n -o data
+```
 
-...
+This should return:
 
+```
+info: Searching using eupmc API
+info: Running in no-execute mode, so nothing will be downloaded
+info: Found 11377 open access results
+warn: This version of getpapers wasn't built with this version of the EuPMC api in mind
+warn: getpapers EuPMCVersion: 5.3.2 vs. 5.3.5 reported by api
+```
 
-If this does not work, or you prefer to run locally, please follow these steps:
+If you prefer to run locally, please follow these steps:
 
 * Open the terminal
 * Install npm if you do not already have it
