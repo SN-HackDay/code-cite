@@ -24,7 +24,9 @@ def check_github_licence_exists(repo):
 
 
 def validate_github(url,token):  
-    git_url_path = (url.split('github.com/'))[1]    
+    git_url_suffix = (url.split('github.com/'))[1]
+    git_url_split = (git_url_suffix.split('/'))
+    git_url_path = git_url_split[0]+'/'+git_url_split[1]
     g = Github(token)                 
     repo = g.get_repo(git_url_path)
     licence_exists = check_github_licence_exists(repo)
