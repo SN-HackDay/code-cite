@@ -1,8 +1,8 @@
-# code-cite
+# Code (and Data) Cite
 
-This project started at Springer Nature Hackday in November 2017.
+This project started at [Springer Nature Hackday](https://www.springernature.com/gb/researchers/campaigns/sn-hack-day) in November 2017 and continued at the [Collaborations Workshop Hackday](https://www.software.ac.uk/cw18/) in March 2018.
 
-The goal is to investigate how often code is cited in academic publications.
+The goal is to investigate how often code and data are cited in academic publications.
 
 It was inspired by [Yo Yehudi's](https://github.com/yochannah) [Code is Science](https://github.com/yochannah/code-is-science/) project and seeks to complement the work by that community by providing some numbers associated with the prevalence of code citations in the published literature.
 
@@ -28,6 +28,7 @@ This project follows the [all-contributors][all-contributors] specification and 
 [all-contributors]: https://github.com/kentcdodds/all-contributors
 
 ### Secrets
+
 Some scripts may require the use of secrets you don't want to be stored in this public
 Github repository (e.g. web service API keys). You can create a "secrets" folder
 in the top level of this repository to store these. This "secrets" folder and
