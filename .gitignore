@@ -4,6 +4,8 @@ secrets/
 # Ignore the data folder
 data/
 
+# Ignore directory info from local macOS
+.DS_store
 
 #### Default python gitignore as initiated by GitHub
 
