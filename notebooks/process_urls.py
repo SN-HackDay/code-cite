@@ -1,5 +1,8 @@
 import requests
 import datetime
+import process_zenodo
+from github import Github
+
 
 def is_url_valid(url):
     response = requests.get(url)
@@ -9,11 +12,7 @@ def is_url_valid(url):
     else:
         return False
 
-from github import Github
-
-# g = Github(token)
-# repo = g.get_repo(https://github.com/andreww/MSAT)
-
+    
 def check_github_licence_exists(repo):
     possible_filenames = ['LICENCE', 'COPYING','LICENSE']
     for content in repo.get_contents('/'):
@@ -65,7 +64,7 @@ def process_github_url(url, doi, verbose=False, github_token=None):
     return url_dict
 
 
-def process_zenodo_url(url, verbose=False):
+def process_zenodo_url(url, doi, verbose=False):
     """
     Given a zenodo URL, calculate a 'code score' and report attributes
     
@@ -78,7 +77,8 @@ def process_zenodo_url(url, verbose=False):
                 'resourcetype': 'zenodo',
                 'timestamp': datetime.datetime.now().isoformat(),
                 'resolves': None,
-                'score': 0}
+                'score': 0,
+                'licence_exists': None}
 
     if not is_url_valid(url):
         url_dict['resolves'] = False
@@ -86,6 +86,15 @@ def process_zenodo_url(url, verbose=False):
         return url_dict
     url_dict['resolves'] = True
     url_dict['score'] = url_dict['score'] + 1
+            
+    licence_exists = process_zenodo.check_zenodo_licence_exists(url)
+    url_dict['licence_exists'] = licence_exists
+    if licence_exists:
+        print("URL {} has a licence".format(url))
+        url_dict['score'] = url_dict['score'] + 1
+    else:
+        print("URL {} does not have a licence".format(url))
+    
     return url_dict
 
 
@@ -114,7 +123,7 @@ def process_papers_dict(dict_of_papers, verbose=False, github_token=None):
             
         if 'zenodo' in paper:
             for url in paper['zenodo']:
-                url_dict = process_github_url(url, paper_doi, verbose=verbose)
+                url_dict = process_zenodo_url(url, paper_doi, verbose=verbose)
                 resources_list.append(url_dict)
                 paper_score = paper_score + url_dict['score']
                 number_or_resources = number_or_resources + 1
