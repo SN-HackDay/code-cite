@@ -1,0 +1,16 @@
+cff-version: 1.0.3
+message: If you use the software in this repository, please cite it using the below metadata.
+authors:
+  - family-names: O'Reilly
+    given-names: Martin
+    orcid: https://orcid.org/0000-0002-1191-3492
+  - family-names: Staden
+    given-names: Isla
+  - family-names: Whitaker
+    given-names: Kirstie
+    orcid: https://orcid.org/0000-0001-8498-4059
+title: code-cite
+version: 0.1
+doi: 
+date-released: 2018-03-27
+repository-code: https://github.com/softwaresaved/code-cite

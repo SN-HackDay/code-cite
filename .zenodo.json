@@ -1,0 +1,35 @@
+{
+    "description": "<p>This version of the <code>code-cite</code> project was built at the second <a href=\"https://www.springernature.com/gb/researchers/campaigns/sn-hack-day\">Springer Nature Hack Day</a> in November 2017.</p>\n<p>The goal was to interrogate the published literature for key terms relating to software citations (eg: <code>zenodo</code> or <code>github</code>).</p>\n<p>Authors:</p>\n<ul>\n<li>Isla Staden</li>\n<li>Martin O'Reilly</li>\n<li>Kirstie Whitaker</li>\n</ul>\n<p>Licence:</p>\n<ul>\n<li>MIT</li>\n</ul>", 
+    "license": "other-open", 
+    "title": "code-cite", 
+    "version": "0.1", 
+    "upload_type": "software", 
+    "publication_date": "2018-03-28", 
+    "creators": [
+        {
+            "affiliation": "The Alan Turing Institute", 
+            "name": "Kirstie Whitaker"
+        }, 
+        {
+            "affiliation": "The Alan Turing Institute", 
+            "name": "Martin O'Reilly"
+        }, 
+        {
+            "affiliation": "The Alan Turing Institute", 
+            "name": "Isla Staden"
+        }
+    ], 
+    "access_right": "open", 
+    "related_identifiers": [
+        {
+            "scheme": "url", 
+            "identifier": "https://github.com/softwaresaved/code-cite/tree/v0.1", 
+            "relation": "isSupplementTo"
+        }, 
+        {
+            "scheme": "doi", 
+            "identifier": "10.5281/zenodo.1209095", 
+            "relation": "isPartOf"
+        }
+    ]
+}
