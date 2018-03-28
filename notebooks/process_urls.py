@@ -25,10 +25,10 @@ def check_github_licence_exists(repo):
 
 def validate_github(url,token):  
     git_url_suffix = (url.split('github.com/'))[1]
-    git_url_split = (git_url_suffix.split('/'))
-    git_url_path = git_url_split[0]+'/'+git_url_split[1]
+    #git_url_split = (git_url_suffix.split('/'))
+    #git_url_path = git_url_split[0]+'/'+git_url_split[1]
     g = Github(token)                 
-    repo = g.get_repo(git_url_path)
+    repo = g.get_repo(git_url_suffix)
     licence_exists = check_github_licence_exists(repo)
     return licence_exists
 
@@ -64,7 +64,11 @@ def process_github_url(url, doi, verbose=False, github_token=None):
         return url_dict
         
     if github_token is not None:
-        licence_exists = validate_github(url, github_token)
+        try:
+            licence_exists = validate_github(url, github_token)
+        except:
+            licence_exists = False
+           
         url_dict['licence_exists'] = licence_exists
         if licence_exists:
             print("URL {} has a licence".format(url))
@@ -127,16 +131,21 @@ def process_papers_dict(dict_of_papers, verbose=False, github_token=None):
             for url in paper['github']:
                 url_dict = process_github_url(url, paper_doi, verbose=verbose,
                                              github_token=github_token)
-                resources_list.append(url_dict)
                 paper_score = paper_score + url_dict['score']
                 number_or_resources = number_or_resources + 1
+                if 'pub_date' in paper:
+                    url_dict['pub_date'] = paper['pub_date']
+                resources_list.append(url_dict)
             
         if 'zenodo' in paper:
             for url in paper['zenodo']:
                 url_dict = process_zenodo_url(url, paper_doi, verbose=verbose)
-                resources_list.append(url_dict)
                 paper_score = paper_score + url_dict['score']
                 number_or_resources = number_or_resources + 1
+                if 'pub_date' in paper:
+                    url_dict['pub_date'] = paper['pub_date']
+                resources_list.append(url_dict)
+                    
             
         papers_output_dict[paper_doi] = {'score': paper_score, 
                                          'timestamp': datetime.datetime.now().isoformat()}
