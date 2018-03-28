@@ -1,16 +1,24 @@
 # The Code and Data Citation Counter
 
+***Allow researchers and policy makers to see how the presence and quality of links to data and software in publications are changing over time so that they can identify emergent behaviour.***
+
 This project started at [Springer Nature Hackday](https://www.springernature.com/gb/researchers/campaigns/sn-hack-day) in November 2017 and continued at the [Collaborations Workshop Hackday](https://www.software.ac.uk/cw18/) in March 2018.
 
-The goal is to investigate how often code and data are cited in academic publications.
+The goal is to analyse a corpus of papers for citation links into repositories which may hold research data and/or software.
 
-It was inspired by [Yo Yehudi's](https://github.com/yochannah) [Code is Science](https://github.com/yochannah/code-is-science/) project and seeks to complement the work by that community by providing some numbers associated with the prevalence of code citations in the published literature.
+Being able to measure the number of papers that cite their code and data in the academic literature is important to show evidence of the increasing recognition of research software and its developers.
+
+The `code-cite` counter searchs a corpus of literature (eg: [Europe Pubmed Central](https://europepmc.org)) for particular terms (such as `github.com`, `doi.org/10.5281/zenodo` or `doi.org/10.6084/m9.figshare`) and show how their prevalence is increasing over time.
+
+We also provide measures of stability and quality for this code by resolving links found in papers and evaluating metadata such as the existence of a `README` or `LICENSE` file.
+
+Insights may further the much needed culture change regarding the recognition of open data and code sharing in the scientific community.
 
 ### Contributing
 
 We would love for you to join us on this journey!
 
-Check out the [contributing guidelines](https://github.com/SN-HackDay/code-cite/blob/master/CONTRIBUTING.md) or our [list of issues](https://github.com/SN-HackDay/code-cite/issues) to see how you can help.
+Check out the [contributing guidelines](CONTRIBUTING.md) or our [list of issues](https://github.com/softwaresaved/code-cite/issues) to see how you can help.
 
 ### Contributors
 
@@ -23,8 +31,12 @@ Thank you to everyone who has contributed so far!
 
 This project follows the [all-contributors][all-contributors] specification and this [emoji key][emojis] explains the different contributions. The order was determined by reverse numerical order of authors' [ORCIDs](https://orcid.org/).
 
-[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
-[all-contributors]: https://github.com/kentcdodds/all-contributors
+### Community
+
+The project was inspired by [Yo Yehudi's](https://github.com/yochannah) [Code is Science](https://github.com/yochannah/code-is-science/) project and seeks to complement the work by that community by providing some numbers associated with the prevalence of code citations in the published literature.
+
+Our efforts also complement published work by Park et al (2017, doi:[10.1007/s11192-017-2240-2](https://doi.org/10.1007/s11192-017-2240-2).
+
 
 ### Secrets
 
@@ -32,3 +44,7 @@ Some scripts may require the use of secrets you don't want to be stored in this 
 Github repository (e.g. web service API keys). You can create a "secrets" folder
 in the top level of this repository to store these. This "secrets" folder and
 all comments will be ignored by Git.
+
+
+[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
+[all-contributors]: https://github.com/kentcdodds/all-contributors
