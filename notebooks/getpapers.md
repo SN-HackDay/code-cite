@@ -1,7 +1,7 @@
 
 # Step 1: find the papers that contain the term of interest
 
-We use ContentMine's getpapers query to identify papers for a particular term.
+We use ContentMine's [getpapers](https://github.com/ContentMine/getpapers) tool to identify papers for a particular term.
 This is step one of the full pipeline to analyse the open access literature for software citation and other practises, as developed by the code-cite team at Collaborations Workshop 2018, building on work done at the Springer Nature hack day 2017.
 
 ## a. Setup your local environment
@@ -9,27 +9,20 @@ This is step one of the full pipeline to analyse the open access literature for 
 You can run getpapers without local installation using this Docker image:
 
 ```
-docker run softwaresaved/getpapers --query 'github.com' -n -o data
+docker run softwaresaved/getpapers --version
 ```
 
-This should return:
+On linux and mac you will probably need to prepend this with `sudo`. This should return the current getpapers version number:
 
 ```
-info: Searching using eupmc API
-info: Running in no-execute mode, so nothing will be downloaded
-info: Found 11377 open access results
-warn: This version of getpapers wasn't built with this version of the EuPMC api in mind
-warn: getpapers EuPMCVersion: 5.3.2 vs. 5.3.5 reported by api
+0.4.17
 ```
 
 If you prefer to run locally, please follow these steps:
 
 * Open the terminal
-* Install npm if you do not already have it
-```
-Install npm
-```
-* Then install getpapers
+* [Install npm](https://github.com/blahah/installing-node-tools) if you do not already have it.
+* Install getpapers
 ```
 npm install --global getpapers
 ```
@@ -47,8 +40,18 @@ For this process, here's some useful info.
 
 Sample code:
 ```
+# local install:
+
 getpapers --query 'query' -o output
 ```
+
+With docker you will need to specify a local directory which maps to the docker directory where the data will be downloaded, like so:
+
+```
+docker run -v <local_data_dir>:<docker_dir> softwaresaved/getpapers --query 'query' -o <docker_dir>
+```
+
+Further explanation is given in the getpapers [docker repo](://github.com/softwaresaved/getpapers).
 
 query = your search term. The search query language is dependent on the API being called. By default, this is europePMC, and notes on the queries possible are at
 output = name of directory that your output will be printed to. Without specifying further, this will be JSON with paper metadata and abstract.
@@ -69,26 +72,33 @@ Other queries to try:
 * Zenodo - '/zenodo.' may be a good common string to identify zenodo DOIs. Source: [Kirstie Whitaker](https://github.com/SN-HackDay/code-cite/issues/3)
 * Figshare
 
-## c. Determine your query and output folder
+## c. Run getpapers to find number of results for your query
 
-```python
-# Specific your query here by replacing the word(s) instead the ''
-query = 'github.com'
-
-# Specific the name of your output directory here. This is where the article metadata (JSON) or xml (if appending -x) will be downloaded to.
-output = 'data'
-```
-
-## d. Run getpapers to find number of results for your query
+Set <local_data_dir> to be a directory of your choice on your local machine where any downloaded data will be stored.
 
 Sample code:
 ```
-getpapers --query 'query' -n -o output
+
+# local install
+
+getpapers --query 'query' -n -o <local_data_dir>
+
+# docker container
+
+docker run -v <local_data_dir>:<docker_dir> softwaresaved/getpapers --query 'query' -o <docker_dir>
+
 ```
 
 For github.com mentions:
 ```
-getpapers --query 'github.com' -n -o data
+
+# local install
+
+getpapers --query 'github.com' -n -o <local_data_dir>
+
+# docker container
+
+docker run -v <local_data_dir>:<docker_dir> softwaresaved/getpapers --query 'github.com' -n -o <docker_dir>
 ```
 returns
 ```
@@ -97,10 +107,16 @@ info: Running in no-execute mode, so nothing will be downloaded
 info: Found 11377 open access results
 ```
 
-## e. Run getpapers to download matching article data in xml
+## d. Run getpapers to download matching article data in xml
 Sample code:
 ```
+# local install
+
 getpapers --query 'query' -o output -x
+
+# docker container
+
+docker run -v <local_data_dir>:<docker_dir> softwaresaved/getpapers --query 'query' -o <docker_dir> -x
 ```
 Appending -x here specifies that the articles should be downloaded in xml. The default without -x is to return the article JSON with article metadata and abstract but not full-text. Note this will also be returned in addition to the xml download.
 
@@ -108,7 +124,13 @@ Before running this command, check you are in the right directory for this proje
 
 For github.com articles:
 ```
+# local install
+
 getpapers --query 'github.com' -o data -x
+
+# docker container
+
+docker run -v <local_data_dir>:<docker_dir> softwaresaved/getpapers --query 'github.com' -o <docker_dir> -x
 ```
 Returns:
 ```
@@ -129,18 +151,18 @@ Note some articles may not have associated XMLs if they are missing a PMCID or a
 
 Note also the time it takes to download these files: for >11,000 XMLs, it took 3 minutes on a standard laptop (MacBook Air) and excellent internet connection (81.40 Mbps by speedtest directly after this command was run).
 
-## f. Check the outputs and structure of these data.
+## e. Check the outputs and structure of these data.
 
 We expect in our chosen parent directory:
 - [x] Full EUPMC result metadata written to eupmc_results.json [!large!]
 - [x] Fulltext HTML URL list written to eupmc_fulltext_html_urls.txt
 - [x] XML article data in subfolders
 
-The subfolders we find in /data are:
+The subfolders we find in <local_data_dir> are:
 
 * /10.1101 - contains more subfolders, each named by doi extension (e.g. 003905 for doi: 10.1101/003905). These subfolders contain one file: 'eupmc_result.json' which is the article metadata including abstract for that DOI. These are the DOIs without a PMC or full-text.
 * many subfolders called /PMC{numerics} - each of these folders is for a single article, identified by their PMCID. The folder contains the 'eupmc_result.json' and 'fulltext.xml'.
 
-## g. Go to step two
+## f. Go to step two
 
 In step two, we will use a Jupyter notebook to extract the GitHub URLs from the full-texts, and transform the resulting data into a usable structure for interpretation and visualisation via the downstream steps.
