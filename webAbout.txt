@@ -1,0 +1,20 @@
+
+This is a hackday project at Collaboration Workshop 2018 in Cardiff [1]. It builds upon a project started at Springer Nature Hackday [2] in November 2017.
+
+The goal is to analyze a corpus of papers for citation links into repositories which may hold research data and/or software. 
+Numbers associated with the prevalence of code and data citations in academic literature shall provide insights into the growing importance of research software and its developers.
+The application also indicates measures of stability and quality for this code by resolving links found in papers and evaluating metadata like the existance of a README.me and license file.
+Insights may further the much needed culture change regarding the recognition of open data and code sharing in the scientific community. 
+This work shall supplement work by Park (2017) [3] an others.
+
+The corpus currently implemented is available from [4] (future work includes plans to make other corpuses available to this tool.)
+
+Licensing information and citation suggestions can be found in the project's GitHub repo [5] 
+
+
+## References
+[1] https://www.software.ac.uk/cw18
+[2] https://github.com/SN-HackDay/code-cite/
+[3] Park, H. & Wolfram, D. Scientometrics (2017) 111: 443. https://doi.org/10.1007/s11192-017-2240-2
+[4] https://europepmc.org
+[5] https://github.com/softwaresaved/code-cite/
