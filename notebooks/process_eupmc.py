@@ -42,7 +42,7 @@ def get_references(fulltext_xml):
 
     urls = re.findall(r'(https?://\S+)(?=\")', fulltext_xml)
     for url in urls:
-        if re.match(r'https?://github.com', url) and url not in github_urls:            
+        if re.match(r'https?://github.com', url) and url not in github_urls:
             github_urls.append(url)
         elif re.match(r'https?://zenodo.org', url) and url not in zenodo_urls:
             zenodo_urls.append(url)
@@ -68,7 +68,7 @@ def process_paper(pmcid, data_dir):
             doi = get_doi(paper_json)
             pub_date = get_pub_date(paper_json)
     except IOError:
-        print("Error: File does not appear to exist.")
+        print("Error: JSON File does not appear to exist.")
 
     # Read in the XML full text and mine for the github URLs
     fulltext_file = data_dir + '/' + pmcid + '/' + 'fulltext.xml'
@@ -78,7 +78,7 @@ def process_paper(pmcid, data_dir):
             fulltext_xml = f.read()
             references = get_references(fulltext_xml)
     except IOError:
-        print("Error: File does not appear to exist.")
+        print("Error: XML File does not appear to exist.")
 
     paper_info = Paper(pmcid, doi, pub_date, references)
 
