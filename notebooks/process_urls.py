@@ -14,7 +14,7 @@ def is_url_valid(url):
 
     
 def check_github_licence_exists(repo):
-    possible_filenames = ['LICENCE', 'COPYING','LICENSE']
+    possible_filenames = ['LICENCE', 'COPYING','LICENSE','LICENCE.md','LICENSE.md','LICENCE.TXT','LICENSE.TXT']
     for content in repo.get_contents('/'):
         name = content.name
         for poss_name in possible_filenames:
@@ -22,8 +22,17 @@ def check_github_licence_exists(repo):
                 return True
     return False
 
+def check_github_readme_exists(repo):
+    possible_filenames = ['README', 'README.md','README.TXT','README.rst']
+    for content in repo.get_contents('/'):
+        name = content.name
+        for poss_name in possible_filenames:
+            if poss_name in name.upper():
+                return True
+    return False
 
-def validate_github(url,token):  
+    
+def validate_github_licence(url,token):  
     git_url_suffix = (url.split('github.com/'))[1]
     #git_url_split = (git_url_suffix.split('/'))
     #git_url_path = git_url_split[0]+'/'+git_url_split[1]
@@ -32,6 +41,14 @@ def validate_github(url,token):
     licence_exists = check_github_licence_exists(repo)
     return licence_exists
 
+def validate_github_readme(url,token):  
+    git_url_suffix = (url.split('github.com/'))[1]
+    #git_url_split = (git_url_suffix.split('/'))
+    #git_url_path = git_url_split[0]+'/'+git_url_split[1]
+    g = Github(token)                 
+    repo = g.get_repo(git_url_suffix)
+    readme_exists = check_github_readme_exists(repo)
+    return readme_exists
 
 def process_github_url(url, doi, verbose=False, github_token=None):
     """
@@ -54,10 +71,12 @@ def process_github_url(url, doi, verbose=False, github_token=None):
         if verbose: print("URL {} did not resolve".format(url))
         return url_dict
     
-    if verbose: print("check licence for URL {}".format(url))
     url_dict['resolves'] = True
     url_dict['score'] = url_dict['score'] + 1
-    
+
+    if verbose: print("check licence for URL {}".format(url))
+
+    # Skip non-repo URLs
     if 'blob' in url:
         if verbose: 
             print("skipping licence check for URL {}".format(url))
@@ -65,8 +84,9 @@ def process_github_url(url, doi, verbose=False, github_token=None):
         
     if github_token is not None:
         try:
-            licence_exists = validate_github(url, github_token)
-        except:
+            licence_exists = validate_github_licence(url, github_token)
+        except Exception as e:
+            if verbose: print("Exception {} when checking for licence".format(e))
             licence_exists = False
            
         url_dict['licence_exists'] = licence_exists
@@ -75,6 +95,20 @@ def process_github_url(url, doi, verbose=False, github_token=None):
             url_dict['score'] = url_dict['score'] + 1
         else:
             print("URL {} does not have a licence".format(url))
+            
+        try:
+            readme_exists = validate_github_readme(url, github_token)
+        except Exception as e:
+            if verbose: print("Exception {} when checking for readme".format(e))
+            readme_exists = False
+           
+        url_dict['readme_exists'] = readme_exists
+        if readme_exists:
+            print("URL {} has a readme".format(url))
+            url_dict['score'] = url_dict['score'] + 1
+        else:
+            print("URL {} does not have a readme".format(url))
+            
     return url_dict
 
 
