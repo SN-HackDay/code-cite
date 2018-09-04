@@ -12110,7 +12110,7 @@ a.anchor-link {
                 <span class="n">repos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reponame</span><span class="p">)</span>            
     
     <span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">repos</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Processing: &quot;</span><span class="p">,</span> <span class="n">repo</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Processing: &quot;</span><span class="p">,</span> <span class="n">repo</span><span class="p">)</span>
         <span class="n">code</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">get_repo</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
         <span class="c1"># limit to commits since publication date</span>
         <span class="n">since</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pub_date</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -12121,9 +12121,9 @@ a.anchor-link {
         <span class="k">while</span> <span class="n">commit_date</span> <span class="o">&gt;</span> <span class="n">since</span><span class="p">:</span>
             <span class="n">num_commits</span> <span class="o">=</span> <span class="n">num_commits</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="n">commit_date</span> <span class="o">=</span> <span class="n">commits</span><span class="p">[</span><span class="n">num_commits</span><span class="p">]</span><span class="o">.</span><span class="n">commit</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">date</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of commits since publication: &quot;</span><span class="p">,</span> <span class="n">num_commits</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of commits since publication: &quot;</span><span class="p">,</span> <span class="n">num_commits</span><span class="p">)</span>
         <span class="n">commit_freq</span> <span class="o">=</span> <span class="n">num_commits</span> <span class="o">/</span> <span class="n">days</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Commit frequency: &quot;</span><span class="p">,</span> <span class="n">commit_freq</span><span class="p">,</span> <span class="s2">&quot;commits/day since publication&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Commit frequency: &quot;</span><span class="p">,</span> <span class="n">commit_freq</span><span class="p">,</span> <span class="s2">&quot;commits/day since publication&quot;</span><span class="p">)</span>
         <span class="n">number_of_updates</span><span class="p">[</span><span class="n">num_commits</span><span class="p">]</span> <span class="o">+=</span><span class="mi">1</span>
         <span class="c1"># I&#39;m using the magic number 100 until I get a sense of the correct bins to use</span>
         <span class="n">frequency_of_updates</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">commit_freq</span><span class="p">)]</span> <span class="o">+=</span><span class="mi">1</span>
@@ -12138,7 +12138,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Is-software-updated-after-the-paper-is-published?">Is software updated after the paper is published?<a class="anchor-link" href="#Is-software-updated-after-the-paper-is-published?">&#182;</a></h1><p><img src="img/commitssincepublication.png" alt="title"></p>
+<h1 id="Is-software-updated-after-the-paper-is-published?">Is software updated after the paper is published?<a class="anchor-link" href="#Is-software-updated-after-the-paper-is-published?">&#182;</a></h1><p><img src="img/commitsperdaysincepublication.png" alt="title"></p>
 
 </div>
 </div>
@@ -12216,7 +12216,16 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Does-it-have-a-process-for-contributions?">Does it have a process for contributions?<a class="anchor-link" href="#Does-it-have-a-process-for-contributions?">&#182;</a></h1><p><img src="img/contributorfile.png" alt="Does software referenced in publications have a contributor file?"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12242,13 +12251,17 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="What-can-we-(all)-do-next?">What can we (all) do next?<a class="anchor-link" href="#What-can-we-(all)-do-next?">&#182;</a></h1><ul>
 <li>Extend this study to:<ul>
-<li>Look at where software is mentioned (e.g. in methodology, in footnotes, in references)</li>
 <li>Look at the whole EuroPMC corpus (donate your GitHub tokens!)</li>
 <li>Look at other corpora and see if there are domain-based trends</li>
 </ul>
 </li>
 <li>Compare and contrast to:<ul>
 <li>See if policy changes have had an effect (e.g. Science pre-/post-2011)</li>
+</ul>
+</li>
+<li>Understand how to:<ul>
+<li>Look at where software is mentioned (e.g. in methodology, in footnotes, in references)</li>
+<li>Identify software used by the authors versus written by them</li>
 </ul>
 </li>
 </ul>
