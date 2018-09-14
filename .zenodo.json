@@ -1,0 +1,66 @@
+{
+    "description": "<p>This version of the <b>The Code and Data Citation Counter</b> project was built at the <a href=\"https://www.software.ac.uk\">Software Sustainability Institute's</a> <a href=\"https://www.software.ac.uk/cw18/\">Collaborations Workshop Hack Day</a> in March 2018 and extends work started at the second <a href=\"https://www.springernature.com/gb/researchers/campaigns/sn-hack-day\">Springer Nature Hack Day</a> in November 2017.</p>\n<p>The goal is to interrogate the published literature for key terms relating to software and data citations (eg: <code>zenodo</code> or <code>github</code>) and monitor how these occurances change over time.</p>",
+    "license": "MIT",
+    "title": "The Code and Data Citation Counter",
+    "version": "0.2",
+    "upload_type": "software",
+    "publication_date": "2018-03-28",
+    "creators": [
+        {
+            "name": "Andrew Walker",
+            "orcid": "0000-0003-3121-3255"
+        },
+        {
+            "name": "Robin Long",
+            "orcid": "0000-0003-2249-645X"
+        },
+        {
+            "name": "Naomi Penfold",
+            "orcid": "0000-0003-0568-1194"
+        },
+        {
+            "name": "Neil Chue Hong",
+            "orcid": "0000-0002-8876-7606"
+        },
+        {
+            "affiliation": "The Alan Turing Institute",
+            "name": "Martin O'Reilly",
+            "orcid":  "0000-0002-1191-3492"
+        },
+        {
+            "name": "Alexander Struck",
+            "orcid":  "0000-0002-1173-9228"
+        },
+        {
+            "name": "Matthew Upson",
+            "orcid": "0000-0002-1040-8048"
+        },
+        {
+            "affiliation": "The Alan Turing Institute",
+            "name": "Isla Staden",
+            "orcid": "0000-0002-0795-1154"
+        },
+        {
+            "affiliation": "The Alan Turing Institute",
+            "name": "Kirstie Whitaker",
+            "orcid": "0000-0001-8498-4059"
+        },
+        {
+            "name": "Shoaib Sufi",
+            "orcid": "0000-0001-6390-2616"
+        }
+    ],
+    "access_right": "open",
+    "related_identifiers": [
+        {
+            "scheme": "url",
+            "identifier": "https://github.com/softwaresaved/code-cite/tree/0.2",
+            "relation": "isSupplementTo"
+        },
+        {
+            "scheme": "doi",
+            "identifier": "10.5281/zenodo.1209095",
+            "relation": "isPartOf"
+        }
+    ]
+}

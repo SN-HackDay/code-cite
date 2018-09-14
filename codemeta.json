@@ -1,0 +1,70 @@
+{
+	"@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+	"@type": "SoftwareSourceCode",
+	"author": [
+    {
+		  "@type": "Person",
+		  "givenName": "Andrew",
+		  "familyName": "Walker",
+		  "@id": "https://orcid.org/0000-0003-3121-3255"
+	  },
+		{
+		  "@type": "Person",
+		  "givenName": "Robin",
+		  "familyName": "Long",
+			"@id": "https://orcid.org/0000-0003-2249-645X"
+	  },
+		{
+		  "@type": "Person",
+		  "givenName": "Naomi",
+		  "familyName": "Penfold",
+			"@id": "https://orcid.org/0000-0003-0568-1194"
+	  },
+		{
+		  "@type": "Person",
+		  "givenName": "Neil",
+		  "familyName": "Chue Hong",
+			"@id": "https://orcid.org/0000-0002-8876-7606"
+	  },
+		{
+		  "@type": "Person",
+		  "givenName": "Martin",
+		  "familyName": "O'Reilly",
+			"@id": "https://orcid.org/0000-0002-1191-3492"
+	  },
+		{
+		  "@type": "Person",
+		  "givenName": "Alexander",
+		  "familyName": "Struck",
+			"@id": "https://orcid.org/0000-0002-1173-9228"
+	  },
+		{
+		  "@type": "Person",
+		  "givenName": "Matthew",
+		  "familyName": "Upson",
+			"@id": "https://orcid.org/0000-0002-1040-8048"
+	  },
+		{
+		  "@type": "Person",
+		  "givenName": "Isla",
+		  "familyName": "Staden",
+			"@id": "https://orcid.org/0000-0002-0795-1154"
+	  },
+    {
+		  "@type": "Person",
+		  "givenName": "Kirstie",
+		  "familyName": "Whitaker",
+		  "@id": "https://orcid.org/0000-0001-8498-4059"
+	  },
+		{
+		  "@type": "Person",
+		  "givenName": "Shoaib",
+		  "familyName": "Sufi",
+			"@id": "https://orcid.org/0000-0001-6390-2616"
+	  },
+  ],
+	"name": "code-cite",
+	"softwareVersion": "0.2",
+	"datePublished": "2018-03-28",
+	"codeRepository": "https://github.com/softwaresaved/code-cite"
+}
